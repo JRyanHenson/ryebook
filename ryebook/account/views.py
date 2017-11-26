@@ -29,6 +29,10 @@ def user_login(request):
         form = LoginForm()
     return render(request, 'account/login.html', {'form': form})
 
+@login_required
+def dashboard(request):
+    return render(request, 'account/dashboard.html', {'section': 'dashboard'})
+
 
 # def register(request):
 #     if request.method == 'POST':
@@ -72,6 +76,6 @@ def user_login(request):
 #                                                  'profile_form': profile_form})
 #
 #
-# @login_required
-# def dashboard(request):
-#     return render(request, 'account/dashboard.html', {'section': 'dashboard'})
+@login_required
+def dashboard(request):
+    return render(request, 'account/dashboard.html', {'section': 'dashboard'})
